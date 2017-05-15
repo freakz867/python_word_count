@@ -20,7 +20,7 @@ def sumList(inList):
         finalSum = finalSum + value
     return finalSum
 if __name__ == '__main__':
-    N = int(sys.argv[1])
+    N = 10000000
     #mark the start time
     startTime = time.time()
     #create a random list of N integers

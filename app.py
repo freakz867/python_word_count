@@ -34,3 +34,4 @@ if __name__ == '__main__':
     #print results
     print('The job took %s seconds to complete' % str(workTime)
     #print('The final sum was: %s' % str(finalSum))
+    

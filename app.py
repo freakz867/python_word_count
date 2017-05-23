@@ -19,6 +19,7 @@ def sumList(inList):
     for value in inList:
         finalSum = finalSum + value
     return finalSum
+
 if __name__ == '__main__':
     N = 10000000
     #mark the start time
@@ -32,6 +33,4 @@ if __name__ == '__main__':
     workTime =  endTime - startTime
          
     #print results
-    print('The job took %s seconds to complete' % str(workTime)
-    #print('The final sum was: %s' % str(finalSum))
-    
+    print('The job took %s seconds to complete' % str(workTime))

@@ -41,7 +41,7 @@ if __name__ == '__main__':
     import glob
     print('lol: %s' % os.path.dirname(os.path.realpath(__file__)))
 
-    input_files = glob.glob(os.path.dirname(os.path.realpath(__file__))+'/*.rst')
+    input_files = glob.glob(os.path.dirname(os.path.realpath(__file__))+'/*.rst.txt')
     #input_files = '/Users/z/Documents/lol.rst'
     
     mapper = SimpleMapReduce(file_to_words, count_words)

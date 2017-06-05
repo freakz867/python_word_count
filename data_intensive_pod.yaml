@@ -1,0 +1,105 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: data1pod-1-8pzhk
+  generateName: data1pod-1-
+  namespace: dataintensive1
+  selfLink: /api/v1/namespaces/dataintensive1/pods/data1pod-1-8pzhk
+  uid: bca2df79-4a0e-11e7-9fb1-525400c583ad
+  resourceVersion: '82390'
+  creationTimestamp: '2017-06-05T16:48:01Z'
+  labels:
+    app: data1pod
+    deployment: data1pod-1
+    deploymentconfig: data1pod
+  annotations:
+    kubernetes.io/created-by: "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"ReplicationController\",\"namespace\":\"dataintensive1\",\"name\":\"data1pod-1\",\"uid\":\"3c5a42c6-405a-11e7-b76c-525400c583ad\",\"apiVersion\":\"v1\",\"resourceVersion\":\"82224\"}}\n"
+    openshift.io/deployment-config.latest-version: '1'
+    openshift.io/deployment-config.name: data1pod
+    openshift.io/deployment.name: data1pod-1
+    openshift.io/scc: anyuid
+spec:
+  volumes:
+    -
+      name: default-token-f8y9f
+      secret:
+        secretName: default-token-f8y9f
+  containers:
+    -
+      name: data1pod
+      image: '172.30.53.244:5000/dataintensive1/data1pod@sha256:602c2ac503b9fffc1167f70ae647a1abcddb81318ee7e9ae6262741df58cc07d'
+      ports:
+        -
+          containerPort: 8080
+          protocol: TCP
+      resources:
+      volumeMounts:
+        -
+          name: default-token-f8y9f
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePath: /dev/termination-log
+      imagePullPolicy: Always
+      securityContext:
+        capabilities:
+          drop:
+            - MKNOD
+            - SYS_CHROOT
+        privileged: false
+        seLinuxOptions:
+          level: 's0:c8,c7'
+  restartPolicy: Always
+  terminationGracePeriodSeconds: 30
+  dnsPolicy: ClusterFirst
+  host: origin
+  serviceAccountName: default
+  serviceAccount: default
+  nodeName: origin
+  securityContext:
+    seLinuxOptions:
+      level: 's0:c8,c7'
+  imagePullSecrets:
+    -
+      name: default-dockercfg-xtn1b
+status:
+  phase: Running
+  conditions:
+    -
+      type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2017-06-05T16:48:02Z'
+    -
+      type: Ready
+      status: 'False'
+      lastProbeTime: null
+      lastTransitionTime: '2017-06-05T16:48:02Z'
+      reason: ContainersNotReady
+      message: 'containers with unready status: [data1pod]'
+    -
+      type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2017-06-05T16:48:01Z'
+  hostIP: 10.0.2.15
+  podIP: 172.17.0.15
+  startTime: '2017-06-05T16:48:02Z'
+  containerStatuses:
+    -
+      name: data1pod
+      state:
+        waiting:
+          reason: CrashLoopBackOff
+          message: 'Back-off 10s restarting failed container=data1pod pod=data1pod-1-8pzhk_dataintensive1(bca2df79-4a0e-11e7-9fb1-525400c583ad)'
+      lastState:
+        terminated:
+          exitCode: 1
+          reason: Error
+          startedAt: '2017-06-05T16:48:33Z'
+          finishedAt: '2017-06-05T16:48:35Z'
+          containerID: 'docker://84ed9ecb785fb602fee23574e435a920e9ee82d8553a313db17bd5de1f9cca41'
+      ready: false
+      restartCount: 1
+      image: '172.30.53.244:5000/dataintensive1/data1pod@sha256:602c2ac503b9fffc1167f70ae647a1abcddb81318ee7e9ae6262741df58cc07d'
+      imageID: 'docker://sha256:58ca23bf585a3d22f36592916e5b6d385873c5ed889bb4ffe03fbfc562bde7db'
+      containerID: 'docker://84ed9ecb785fb602fee23574e435a920e9ee82d8553a313db17bd5de1f9cca41'
